@@ -20,6 +20,12 @@ echo ""
 echo "=== llama.cpp Snapdragon Build Environment Check ==="
 echo ""
 
+# Detect host architecture for NDK prebuilt path
+case "$(uname -m)" in
+    aarch64|arm64) ndk_host="linux-aarch64" ;;
+    *)             ndk_host="linux-x86_64"  ;;
+esac
+
 # ---- CMake ----
 printf "Checking CMake... "
 if command -v cmake >/dev/null 2>&1; then
@@ -56,7 +62,7 @@ fi
 # ---- OpenCL SDK ----
 printf "Checking OpenCL headers... "
 if [ -n "$ANDROID_NDK_ROOT" ]; then
-    cl_header="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/CL/cl.h"
+    cl_header="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/$ndk_host/sysroot/usr/include/CL/cl.h"
     if [ -f "$cl_header" ]; then
         pass "found at $cl_header"
     else
@@ -70,7 +76,7 @@ fi
 
 printf "Checking OpenCL ICD loader... "
 if [ -n "$ANDROID_NDK_ROOT" ]; then
-    cl_lib="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/libOpenCL.so"
+    cl_lib="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/$ndk_host/sysroot/usr/lib/aarch64-linux-android/libOpenCL.so"
     if [ -f "$cl_lib" ]; then
         pass "found at $cl_lib"
     else

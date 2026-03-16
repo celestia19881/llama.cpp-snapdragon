@@ -89,7 +89,7 @@ cp build/libOpenCL.so $ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sy
 cd ..
 ```
 
-For Hexagon NPU support, install the Hexagon SDK:
+For Hexagon NPU support, install the Hexagon SDK (adjust version numbers to match your installation):
 
 ```sh
 export HEXAGON_SDK_ROOT=/path/to/hexagon-sdk/6.4.0.2
