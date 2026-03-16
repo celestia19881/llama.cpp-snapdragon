@@ -1,5 +1,7 @@
 # Snapdragon-based devices
 
+> **Quick start:** For a step-by-step guide to building and deploying on Android with Snapdragon, see [snapdragon-quickstart.md](../../snapdragon-quickstart.md).
+
 ## Setup
 
 ### Android

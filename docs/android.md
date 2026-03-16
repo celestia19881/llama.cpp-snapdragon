@@ -1,6 +1,8 @@
 
 # Android
 
+> **Snapdragon devices:** For Snapdragon-optimized builds with GPU (Adreno/OpenCL) and NPU (Hexagon) support, see [snapdragon-quickstart.md](snapdragon-quickstart.md).
+
 ## Build GUI binding using Android Studio
 
 Import the `examples/llama.android` directory into Android Studio, then perform a Gradle sync and build the project.
